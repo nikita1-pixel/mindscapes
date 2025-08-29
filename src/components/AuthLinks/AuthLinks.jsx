@@ -5,11 +5,11 @@ const AuthLinks = () => {
     const status = "notauthenticated";
     return <>
     {status === "notauthenticated" ? (
-        <link href="/login">Logout</link>
+        <a href="/login">Login</a>
     ) : (
         <>
         <link href="/write">Write</link>
-        <span>Logout</span>
+        <span className={styles.link}>Logout</span>
         </>
     )}
     </>
