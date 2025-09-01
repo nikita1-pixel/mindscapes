@@ -1,18 +1,19 @@
 "use client";
 
-import { createContext, useState } from "react";
+import { ThemeContext } from "@/context/ThemeContext";
+import React, { useContext, useEffect, useState } from "react";
 
-export const ThemeContext = createContext ()
+const ThemeProvider = ({ children }) => {
+  const { theme } = useContext(ThemeContext);
+  const [mounted, setMounted] = useState(false);
 
-const getFromLocalStorage = ()=>{
-    if(typeof window !== 'undefined'){
-    const value = localStorage.getItem("theme");
-    return value || "light";
-    }
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (mounted) {
+    return <div className={theme}>{children}</div>;
+  }
 };
-export const ThemeContextProvider = ({childern})=>{
-    const [theme, setTheme] = useState(() => {
-    return getFromLocalStorage();
-    });
-    return<ThemeContext.Provider value={{theme}}>{childern}</ThemeContext.Provider>
-}
+
+export default ThemeProvider;
