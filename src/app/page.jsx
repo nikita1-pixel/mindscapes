@@ -3,7 +3,7 @@ import styles from "./homepage.module.css";
 import Featured from "@/components/Featured/Featured";
 import CategoryList from "@/components/CategoryList/CategoryList";
 import CardList from "@/components/CardList/CardList";
-import menu from "@/components/menu/menu";
+import menu from "@/components/Menu/menu";
 
 
 export default function Home() {
