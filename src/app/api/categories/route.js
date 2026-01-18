@@ -4,12 +4,14 @@ import { NextResponse } from "next/server";
 export const GET = async () => {
   try {
     const categories = await prisma.category.findMany();
-
-    return new NextResponse(JSON.stringify(categories, { status: 200 }));
+    return new NextResponse(JSON.stringify(categories), { status: 200 });
   } catch (err) {
-    console.log(err);
+    // THIS LOG IS KEY: Check your VS Code terminal for the red text!
+    console.error("DATABASE_ERROR_DETAILS:", err);
+
     return new NextResponse(
-      JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
+      JSON.stringify({ message: "Internal Server Error", error: err.message }),
+      { status: 500 }
     );
   }
 };

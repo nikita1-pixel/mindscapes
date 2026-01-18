@@ -3,16 +3,20 @@ import styles from "./homepage.module.css";
 import Featured from "@/components/Featured/Featured";
 import CategoryList from "@/components/CategoryList/CategoryList";
 import CardList from "@/components/CardList/CardList";
-import menu from "@/components/Menu/menu";
+import Menu from "@/components/Menu/Menu";
+import MenuCategories from "@/components/menuCategories/menuCategories";
 
 
 export default function Home() {
   return (<div className={styles.container}>
+    
     <Featured/>
     <CategoryList/>
+    <MenuCategories/>
     <div className={styles.content}>
+      
       <CardList/>
-      <menu/>
+      <Menu/>
       </div>
     </div>
     );

@@ -1,5 +1,4 @@
-import { getAuthSession } from "@/utils/auth";
-import prisma from "@/utils/connect";
+
 import { NextResponse } from "next/server";
 
 export const GET = async (req) => {
@@ -18,12 +17,6 @@ export const GET = async (req) => {
     },
   };
 
-
-
-
-
-
-  
   
   try {
     const [posts, count] = await prisma.$transaction([
@@ -38,14 +31,6 @@ export const GET = async (req) => {
     );
   }
 };
-
-
-
-
-
-
-
-
 
 
 // CREATE A POST
